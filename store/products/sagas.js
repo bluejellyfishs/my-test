@@ -11,13 +11,7 @@ import { getProductsApi, getProductByIdApi } from '../../api/products';
 
 function* getProducts(action) {
   try {
-    const productsResult = yield getProductsApi(
-      action.lifeTime,
-      action.color,
-      action.brand,
-      action.dia,
-      action.lensType
-    );
+    const productsResult = yield getProductsApi();
     yield put(getProductsSuccessAction(productsResult));
   } catch (error) {
     yield put(getProductsFailureAction());
